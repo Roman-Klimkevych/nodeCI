@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const redis = require('redis');
 const util = require('util');
-const keys = required('../config/keys')
+const keys = require('../config/keys')
 
 const exec = mongoose.Query.prototype.exec
 const redisUrl = keys.redisUrl;
