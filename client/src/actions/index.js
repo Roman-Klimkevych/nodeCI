@@ -20,6 +20,13 @@ export const submitBlog = (values, history) => async dispatch => {
   dispatch({ type: FETCH_BLOG, payload: res.data });
 };
 
+export const deleteBlog = (id, history) => async dispatch => {
+  const res = await axios.delete(`/api/blogs/${id}`);
+
+  history.push('/blogs');
+  dispatch({ type: FETCH_BLOG, payload: res.data });
+};
+
 export const fetchBlogs = () => async dispatch => {
   const res = await axios.get('/api/blogs');
 
