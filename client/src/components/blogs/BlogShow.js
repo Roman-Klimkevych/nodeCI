@@ -11,6 +11,12 @@ class BlogShow extends Component {
     this.props.deleteBlog(this.props.match.params._id, this.props.history);
   }
 
+  renderImage() {
+    if (this.props.blog.imageUrl) {
+      return <img src={'https://s3.eu-central-1.amazonaws.com/my-blog-bucket-323/' + this.props.blog.imageUrl} alt='hello' />
+    }
+  }
+
   render() {
     if (!this.props.blog) {
       return '';
@@ -24,6 +30,8 @@ class BlogShow extends Component {
       <div>
         <h3>{title}</h3>
         <p>{content}</p>
+
+        {this.renderImage()}
 
         <div className="fixed-action-btn" onClick={this.deleteBlog}>
           <div className="btn-floating btn-large red">
